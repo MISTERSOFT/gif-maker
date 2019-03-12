@@ -9,19 +9,20 @@ function bootstrap() {
 
   const app = express();
   const port = process.env.PORT || 5000;
-  const www = process.env.WWW || './'
+  // const www = process.env.WWW || './'
 
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  app.use(express.static(www));
+  // app.use(express.static(www));
   app.use('/api', [
     router.use('/download', (req, res) => {
-      res.sendStatus(200);
+      res.send('Yikes /download');
     })
   ]);
   app.get('*', (req, res) => {
-    res.sendFile('index.html', { root: www });
+    res.send('Yikes');
+    // res.sendFile('index.html', { root: www });
   });
   app.listen(port, () => console.log(`Server listening on http://localhost:${port}`));
 }

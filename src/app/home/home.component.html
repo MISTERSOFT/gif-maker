@@ -1,3 +1,2 @@
-<p>
-  home works!
-</p>
+<input type="text" [(ngModel)]="url" type="url" [pattern]="pattern">
+<button (click)="fetchVideo()" [disabled]="!url">GO</button>
