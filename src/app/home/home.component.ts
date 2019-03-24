@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   fetchVideo() {
     console.log('fetchVideo', this.url);
-    this.api.test().subscribe(console.log);
+    this.api.getVideo(this.url).subscribe((path) => console.log('Video path', path));
   }
 
 }
